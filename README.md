@@ -239,16 +239,13 @@ https://www.behance.net/gallery/12410195/Free-Weather-Icons
 https://dribbble.com/shots/1832162-Weather-Icons
 
 **Weather Icons on Graphberry**<br />
-Original artists could not be found.<br />
+Original artists could not be found. Some of the icons were modified to better work with the module's structure and aesthetic.<br />
 https://www.graphberry.com/item/weather-icons<br />
 https://www.graphberry.com/item/weathera-weather-forecast-icons
-
-Some of the icons were modified to better work with the module's
-structure and aesthetic.
 
 **Weather Code Icons by ClimaCell**<br />
 https://github.com/climacell-api/weather-code-icons
 
-**Weather data provided by Dark Sky**<br />
+**Weather data provided by ClimaCell**<br />
 https://climacell.co
 
