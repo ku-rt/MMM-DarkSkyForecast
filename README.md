@@ -6,8 +6,7 @@ https://github.com/MichMich/MagicMirror
 
 ![Screenshot](/../screenshots/MMM-DarkSkyForecast.png?raw=true "Screenshot")
 
-A weather module that displays current, hourly and daily forecast information
-using data from the Dark Sky API. This is a replacement module for MMM-MyWeather, now that Weather Underground no longer allows free API access.  This a complete rewrite from scratch but maintains
+A weather module that displays current, hourly and daily forecast information using data from the ClimaCell API. This is an update to replace the DarkSky API as Apple purchased and discontinued the DarkSky API. Orginall this was a replacement module for MMM-MyWeather, now that Weather Underground no longer allows free API access.  This a complete rewrite from scratch but maintains
 much of the same functionality.
 
 **NOTE:** This module uses the Nunjucks templating system introduced in version 2.2.0 of MagicMirror.  If you're seeing nothing on your display where you expect this module to appear, make sure your MagicMirror version is at least 2.2.0.
@@ -30,7 +29,7 @@ At a minimum you need to supply the following required configuration parameters:
 * `longitude`
 
 You can request an API key to access Dark Sky data here:
-`https://darksky.net/dev`.
+`https://developer.climacell.co/sign-up`.
 
 Free tier is fine -- this module will not make any where near 1000 request on one day.
 
@@ -49,7 +48,7 @@ Find out your latitude and longitude here:
   <tbody>
     <tr>
       <td><code>updateInterval</code></td>
-      <td>How frequently, in minutes, to poll for data. Be careful not to set this too frequent so that you don't exceed Dark Sky's 1000 free requests per day cap.<br><br><strong>Type</strong> <code>Number</code><br>Defaults to <code>10</code></td>
+      <td>How frequently, in minutes, to poll for data. Be careful not to set this too frequent so that you don't exceed ClimaCell's 100 free requests per hour or 1000 free requests per day cap.<br><br><strong>Type</strong> <code>Number</code><br>Defaults to <code>10</code></td>
     </tr>
     <tr>
       <td><code>requestDelay</code></td>
@@ -61,7 +60,7 @@ Find out your latitude and longitude here:
     </tr>
     <tr>
       <td><code>language</code></td>
-      <td>The language to be used for display.<br><br><strong>Type</strong> <code>String</code><br>Defaults to the language set for Magic Mirror, but can be overridden with any of the language codes listed here: https://darksky.net/dev/docs#request-parameters.</td>
+      <td>The language to be used for display.<br><br><strong>Type</strong> <code>String</code><br>At this time, the ClimaCell API only supports English.</td>
     </tr>
     <tr>
       <td><code>colored</code></td>
@@ -69,7 +68,7 @@ Find out your latitude and longitude here:
     </tr>
     <tr>
       <td><code>units</code></td>
-      <td>One of the following: <code>si</code>, <code>ca</code>, <code>uk2</code>, or <code>us</code>.<br><br><strong>Type</strong> <code>String</code><br>Defaults to <code>ca</code><br />See https://darksky.net/dev/docs#request-parameters for details on units.</td>
+      <td>One of the following: <code>si</code> or <code>us</code>.<br><br><strong>Type</strong> <code>String</code><br>Defaults to <code>si</code><br />See https://developer.climacell.co/v3/reference#data-layers-core for details on units.</td>
     </tr>
     <tr>
       <td><code>showCurrentConditions</code></td>
@@ -129,7 +128,7 @@ Find out your latitude and longitude here:
     </tr>
     <tr>
       <td><code>useAnimatedIcons</code></td>
-      <td>Whether to use the Dark Sky's own animated icon set.  When set to true, this will override your choice for <code>iconset</code>. However, flat icons will still be used in some instances.  For example if you set the <code>animateMainIconOnly</code> parameter to true, daily and hourly forecasts will not be animated and instead will use your choice for <code>iconset</code>.  Inline icons (i.e. used to prefix precipitation and wind information) will always be flat.  A good <code>iconset</code> match for the animated set is <code>1c</code>.<br><br><strong>Type</strong> <code>Boolean</code><br>Defaults to <code>true</code></td>
+      <td>Whether to use the Dark Sky's animated icon set.  When set to true, this will override your choice for <code>iconset</code>. However, flat icons will still be used in some instances.  For example if you set the <code>animateMainIconOnly</code> parameter to true, daily and hourly forecasts will not be animated and instead will use your choice for <code>iconset</code>.  Inline icons (i.e. used to prefix precipitation and wind information) will always be flat.  A good <code>iconset</code> match for the animated set is <code>1c</code>.<br><br><strong>Type</strong> <code>Boolean</code><br>Defaults to <code>true</code></td>
     </tr>
     <tr>
       <td><code>animateMainIconOnly</code></td>
@@ -217,7 +216,7 @@ Most important elements of this module have one or more class names applied. Exa
 
 ## For Module Developers
 
-This module broadcasts a notification when it recieves a weather update.  The notification is `DARK_SKY_FORECAST_WEATHER_UPDATE` and the payload contains Dark Sky's JSON weather forecast object.  For details on the weather object, see https://darksky.net/dev/docs.
+This module broadcasts a notification when it recieves a weather update.  The notification is `DARK_SKY_FORECAST_WEATHER_UPDATE` and the payload contains Dark Sky's JSON weather forecast object.
 
 
 ## Attributions
@@ -239,14 +238,17 @@ https://www.behance.net/gallery/12410195/Free-Weather-Icons
 (Designed for DuckDuckGo)<br />
 https://dribbble.com/shots/1832162-Weather-Icons
 
-Sets 4 and 5 were found on Graphberry, but I couldn't find
-the original artists.<br />
+**Weather Icons on Graphberry**<br />
+Original artists could not be found.<br />
 https://www.graphberry.com/item/weather-icons<br />
 https://www.graphberry.com/item/weathera-weather-forecast-icons
 
 Some of the icons were modified to better work with the module's
 structure and aesthetic.
 
+**Weather Code Icons by ClimaCell**<br />
+https://github.com/climacell-api/weather-code-icons
+
 **Weather data provided by Dark Sky**<br />
-https://darksky.net/
+https://climacell.co
 
